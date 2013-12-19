@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multi-page template</title>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+</head>
+<body>
+<!-- Start of first page: #one -->
+<div data-role="page" id="one">
+  <div data-role="header">
+    <h3 align="center">Consumers Beverages</h3>
+  </div>
+  <!-- /header -->
+  <div data-role="content" >
+    <!--You link to internal pages by referring to the <code>id</code> of the page you want to show. For example, to <a href="#two" >link</a> to the page with an <code>id</code> of "two", my link would have a <code>href="#two"</code> in the code.-->
+    <div data-role="" data-inset="false" data-theme="a">
+      <ul data-role="listview">
+        <li><a href="#whatsontap" data-transition='slide'><img src="/m/images/whatsontap.svg" class="ui-li-icon"/>What's On Tap</a></li>
+        <li><a href="#events"><img src="/m/images/calendar.svg" class="ui-li-icon"/>Events & Tastings</a></li>
+        <li><a href="#locations"><img src="/m/images/location.svg" class="ui-li-icon"/>Locations</a></li>
+        <li><a href="#contact"><img src="/m/images/email.svg" class="ui-li-icon"/>Contact Us</a></li>
+        <li><a href="#ads"><img src="/m/images/ads.svg" class="ui-li-icon"/>Ads &amp; In-Store Specials</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- /content -->
+</div>
+<!-- /page one -->
+<!-- Start of second page: #whatsontap -->
+<div data-role="page" id="whatsontap" data-add-back-btn="true">
+  <div data-role="header"><a href="#" data-icon="arrow-l" data-rel="back" data-direction="reverse" data-transition="slide">Back</a>  
+    <h3>What's on Tap?</h3>
+  </div>
+  <div data-role="content">
+    <ul data-role="listview">
+      <li><a href='whatsontap.html?store=4'><img src="/m/images/whatsontap.svg" class="ui-li-icon"/>Abbott Rd. - 12 Taps</a></li>
+      <li><a href='whatsontap.html?store=3'><img src="/m/images/whatsontap.svg" class="ui-li-icon"/>French Rd. - 8 Taps</a></li>
+      <li><a href='whatsontap.html?store=7'><img src="/m/images/whatsontap.svg" class="ui-li-icon"/>Niagara Falls - 12 Taps</a></li>
+      <li><a href='whatsontap.html?store=8'><img src="/m/images/whatsontap.svg" class="ui-li-icon"/>Como Park - 12 Taps</a></li>
+      <li><a href='whatsontap.html?store=9'><img src="/m/images/whatsontap.svg" class="ui-li-icon"/>Sheridan Dr. - 16 Taps</a></li>
+      <li><a href='whatsontap.html?store=6'><img src="/m/images/whatsontap.svg" class="ui-li-icon"/>Clinton St. -12 Taps</a></li>
+      <li><a href='whatsontap.html?store=10'><img src="/m/images/whatsontap.svg" class="ui-li-icon"/>Elmwood Ave. - 12 Taps</a></li>
+      <li><a href='whatsontap.html?store=12'><img src="/m/images/whatsontap.svg" class="ui-li-icon"/>Orchard Park - 16 Taps</a></li>
+      <li><a href='whatsontap.html?store=14'><img src="/m/images/whatsontap.svg" class="ui-li-icon"/>Lockport - 12 Taps</a></li>
+      <li><a href='whatsontap.html?store=15'><img src="/m/images/whatsontap.svg" class="ui-li-icon"/>Cayuga Rd. - 12 Taps</a></li>
+      <li><a href='whatsontap.html?store=16'><img src="/m/images/whatsontap.svg" class="ui-li-icon"/>Transit Rd. - 16 Taps</a></li>
+      <li><a href='whatsontap.html?store=17'><img src="/m/images/whatsontap.svg" class="ui-li-icon"/>West Amherst - 12 Taps</a></li>
+      <li><a href='whatsontap.html?store=13'><img src="/m/images/whatsontap.svg" class="ui-li-icon"/>Hamburg - 8 Taps</a></li>
+      <li><a href='whatsontap.html?store=5'><img src="/m/images/whatsontap.svg" class="ui-li-icon"/>Union Rd. - 12 Taps</a></li>
+    </ul>
+  </div>
+</div>
+<!-- /page two -->
+<!-- Start of third page: #popup -->
+<div data-role="page" id="popup">
+  <div data-role="header" data-theme="e">
+    <h1>Dialog</h1>
+  </div>
+  <!-- /header -->
+  <div data-role="content" data-theme="d">
+    <h2>Popup</h2>
+    <p>I have an id of "popup" on my page container and only look like a dialog because the link to me had a <code>data-rel="dialog"</code> attribute which gives me this inset look and a <code>data-transition="pop"</code> attribute to change the transition to pop. Without this, I'd be styled as a normal page.</p>
+    <p><a href="#one" data-rel="back" data-role="button" data-inline="true" data-icon="back">Back to page "one"</a></p>
+  </div>
+  <!-- /content -->
+  <div data-role="footer">
+    <h4>Page Footer</h4>
+  </div>
+  <!-- /footer -->
+</div>
+<!-- /page popup -->
+</body>
+</html>
