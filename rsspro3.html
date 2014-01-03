@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Consumers Beverages</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+</head>
+<body>
+<div data-role="page">
+  <div role="main" class="ui-content">
+    <div id="rsstable">This is an item<span style="font-size:16px; line-height:12px;">&nbsp;</span></div>
+    <div id="rsstable">
+      <ul id="rssitem[%=itemid%]" data-role="listview">
+        <li><a href="rssprodetail1.html?itemid=[%=itemid%]&amp;amp;itemparenturl=rsspro1.html" class="rssproitemtitle"> Here is the title</a></li>
+      </ul>
+      </div>
+      <div>[%end for-each%]</div>
+    <!-- END MAIN CLASS -->
+  </div>
+  <!-- END PAGE CLASS -->
+</div>
+</body>
+</html>
