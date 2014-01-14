@@ -26,6 +26,19 @@
 </head>
 <body>
 
+<div data-role="panel" id="mypanel" data-theme="a">
+    <ul data-role="listview">
+      <li><a href='whatsontap-stores.html'>What's On Tap</a></li>
+      <li><a href='events.html'>Events & Tastings</a></li>
+      <li><a href='locations.html'>Locations</a></li>
+      <li><a href='contact.html'>Contact Us</a></li>
+      <li><a href='ads.html'>Ads &amp; In-Store Specials</a></li>
+    </ul>
+    <br />
+    <br />
+    <a href='#' data-rel='close' data-role='button' data-icon='delete' data-theme='c'>Close</a>
+  </div>
+
 <script type='text/javascript'>//<![CDATA[ 
 
 // ISCPA added search filter, home icon, updated CDN-Hosted links
@@ -57,7 +70,7 @@ document.write('    </ol>' + '  </div>' + '</div>');
 /* Whats On Tap beer details */
 
 for (i = 1; i <= maxLength; i++) {
-    document.write('<div data-role="page" id="article' + i + '" style="background-color:#FFFFFF;">' + ' <div id="header-gradient-red">' + ' <div id="header-logo">' + ' </div>' + ' </div>' + ' <div data-role="header">' + ' <a href="#list" class="ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-corner-all" data-transition="slide" data-direction="reverse"></a>' + '    <h1 id="articleHeader' + i + '">&nbsp;</h1>' + '  </div>' + '  <div data-role="content">' + '    <div id="articleContent' + i + '" class="articleContent"></div>' + ' <div data-role="controlgroup" data-type="horizontal">' + '      <a href="#article' + String(i - 1) + '" data-role="button" data-icon="arrow-l"' + '        data-inline="true" class="prevButton">Prev</a>' + '      <a href="#article' + String(i + 1) + '" data-role="button" data-icon="arrow-r"' + '        data-inline="true" class="nextButton" data-iconpos="right">Next</a>' + '    </div>' + '  </div>' + '</div>');
+    document.write('<div data-role="page" id="article' + i + '" style="background-color:#FFFFFF;">' + ' <div id="header-gradient-red">' + ' <div id="header-logo">' + ' </div>' + ' </div>' + ' <div data-role="header">' + ' <a href="javascript:history.go(-1);" class="ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-corner-all" data-transition="slide" data-direction="reverse"></a>' + '    <h1 id="articleHeader' + i + '">&nbsp;</h1>' + '  </div>' + '  <div data-role="content">' + '    <div id="articleContent' + i + '" class="articleContent"></div>' + ' <div data-role="controlgroup" data-type="horizontal">' + '      <a href="#article' + String(i - 1) + '" data-role="button" data-icon="arrow-l"' + '        data-inline="true" class="prevButton">Prev</a>' + '      <a href="#article' + String(i + 1) + '" data-role="button" data-icon="arrow-r"' + '        data-inline="true" class="nextButton" data-iconpos="right">Next</a>' + '    </div>' + '  </div>' + '</div>');
 } /* JSONP */
 $(function() {  
     // getOnlineFeed('http://www.consumersbeverages.com/feeds/ontap-4.xml');
@@ -100,6 +113,6 @@ var getOfflineFeed = function(url) {
 //]]>  
 
 </script>
-
+  
 </body>
 </html>
