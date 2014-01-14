@@ -1,0 +1,105 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>Consumers Beverages Mobile</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" name="viewport" />
+<script src="javascript/functions.js" type="text/javascript"></script>
+<link rel="stylesheet" href="css/jquery.mobile-1.4.0.min.css" />
+<link rel="stylesheet" href="css/Consumers.min.css" />
+<script src="javascript/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="javascript/jquery.mobile-1.4.0.min.js" type="text/javascript"></script>
+<style type='text/css'>
+.ui-footer .ui-btn-right {
+}
+.articleContent > table > tbody > tr > td > font > br {
+	display: none;
+}
+.articleContent > table > tbody > tr > td > font > br + div {
+	display: none;
+}
+.articleContent * {
+	font-size: medium !important;
+}
+
+</style>
+</head>
+<body>
+
+<script type='text/javascript'>//<![CDATA[ 
+
+// ISCPA added search filter, home icon, updated CDN-Hosted links
+// forked from sumukh1's "forked: RSS Reader with jQuery Mobile" http://jsdo.it/sumukh1/4Ton
+/* configuration */
+var maxLength = 16;
+
+$.urlParam = function(name, url){
+    if(!url){
+     url = window.location.href;
+    }
+    var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(url);
+    if (!results)
+    { 
+        return 0; 
+    }
+    return results[1] || 0;
+}
+
+var test_store = $.urlParam('store');
+
+/* writing HTML for Whats On Tap list */
+document.write('<div data-role="page" id="list">' + ' <div id="header-gradient-red">' + ' <div id="header-logo">' + ' </div>' + ' </div>' + ' <div data-role="header">' + ' <a href="javascript:history.go(-1);" class="ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-corner-all" data-transition="slide" data-direction="reverse">Back</a>' + ' <h1><span id="widgetTitle">...</span> ' + '      <span style="font-size: x-small"></span></h1>' + ' <a href="#mypanel" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all" data-iconpos="right">Menu</a>' + ' </div>' + '  <div data-role="content">' + '    <ol data-role="listview" data-filter="true" id="articleList">');
+for (var i = 1; i <= maxLength; i++) {
+    document.write('<li id="list' + i + '"><a href="#article' + i + '" id="link' + i + '">&nbsp;</a></li>');
+}
+document.write('    </ol>' + '  </div>' + '</div>');
+
+/* Whats On Tap beer details */
+
+for (i = 1; i <= maxLength; i++) {
+    document.write('<div data-role="page" id="article' + i + '" style="background-color:#FFFFFF;">' + ' <div id="header-gradient-red">' + ' <div id="header-logo">' + ' </div>' + ' </div>' + ' <div data-role="header">' + ' <a href="#list" class="ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-corner-all" data-transition="slide" data-direction="reverse"></a>' + '    <h1 id="articleHeader' + i + '">&nbsp;</h1>' + '  </div>' + '  <div data-role="content">' + '    <div id="articleContent' + i + '" class="articleContent"></div>' + ' <div data-role="controlgroup" data-type="horizontal">' + '      <a href="#article' + String(i - 1) + '" data-role="button" data-icon="arrow-l"' + '        data-inline="true" class="prevButton">Prev</a>' + '      <a href="#article' + String(i + 1) + '" data-role="button" data-icon="arrow-r"' + '        data-inline="true" class="nextButton" data-iconpos="right">Next</a>' + '    </div>' + '  </div>' + '</div>');
+} /* JSONP */
+$(function() {  
+    // getOnlineFeed('http://www.consumersbeverages.com/feeds/ontap-4.xml');
+    getOnlineFeed('http://www.consumersbeverages.com/feeds/ontap-' + test_store + '.xml');
+
+}); /* functions */
+var listEntries = function(json) {
+    if (!json.responseData.feed.entries) return false;
+    $('#widgetTitle').text(json.responseData.feed.title);
+    var articleLength = json.responseData.feed.entries.length;
+    articleLength = (articleLength > maxLength) ? maxLength : articleLength;
+    for (var i = 1; i <= articleLength; i++) {
+        var entry = json.responseData.feed.entries[i - 1];
+        $('#link' + i).text(entry.title);
+        $('#articleHeader' + i).text(entry.title);
+        $('#openButton' + i).attr('href', entry.link);
+        $('#articleContent' + i).append(entry.content);
+    }
+    $('#article1 .prevButton').remove();
+    $('#article' + articleLength + ' .nextButton').remove();
+    if (articleLength < maxLength) {
+        for (i = articleLength + 1; i <= maxLength; i++) {
+            $('#list' + i).remove();
+            $('#article' + i).remove();
+        }
+    }
+};
+var getOnlineFeed = function(url) {
+    var script = document.createElement('script');
+    script.setAttribute('src', 'http://ajax.googleapis.com/ajax/services/feed/load?callback=listEntries&hl=ja&output=json-in-script&q=' + encodeURIComponent(url) + '&v=1.0&num=' + maxLength);
+    script.setAttribute('type', 'text/javascript');
+    document.documentElement.firstChild.appendChild(script);
+};
+var getOfflineFeed = function(url) {
+    var script = document.createElement('script');
+    script.setAttribute('src', url);
+    script.setAttribute('type', 'text/javascript');
+    document.documentElement.firstChild.appendChild(script);
+};
+//]]>  
+
+</script>
+
+</body>
+</html>
