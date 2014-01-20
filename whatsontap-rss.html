@@ -26,19 +26,6 @@
 </head>
 <body>
 
-<div data-role="panel" id="mypanel" data-theme="a">
-    <ul data-role="listview">
-      <li><a href='whatsontap-stores.html'>What's On Tap</a></li>
-      <li><a href='events.html'>Events & Tastings</a></li>
-      <li><a href='locations.html'>Locations</a></li>
-      <li><a href='contact.html'>Contact Us</a></li>
-      <li><a href='ads.html'>Ads &amp; In-Store Specials</a></li>
-    </ul>
-    <br />
-    <br />
-    <a href='#' data-rel='close' data-role='button' data-icon='delete' data-theme='c'>Close</a>
-  </div>
-
 <script type='text/javascript'>//<![CDATA[ 
 
 // ISCPA added search filter, home icon, updated CDN-Hosted links
@@ -65,12 +52,16 @@ document.write('<div data-role="page" id="list">' + ' <div id="header-gradient-r
 for (var i = 1; i <= maxLength; i++) {
     document.write('<li id="list' + i + '"><a href="#article' + i + '" id="link' + i + '">&nbsp;</a></li>');
 }
-document.write('    </ol>' + '  </div>' + '</div>');
+document.write('</ol>');
+/* end "content" */
+document.write('</div>');
+document.write('<div data-role="panel" data-display="overlay" id="mypanel" data-theme="a">' + '<ul data-role="listview">' + '<li>' + '<a href="whatsontap-stores.html">What&rsquo;s On Tap</a>' + '</li>' + '<li>' + '<a href="events.html">Events &amp; Tastings</a>' + '</li>' + '<li>' + '<a href="locations.html">Locations</a>' + '</li>' + '<li>' + '<a href="contact.html">Contact Us</a>' + '</li>' + '<li>' + '<a href="ads.html">Ads &amp; Store Specials</a>' + '</li>' + ' </ul>' + ' <br />' + ' <br />' + '<a href="#mypanel" data-role="close" class="ui-btn" data-icon="delete" data-theme="c">Close</a>' + ' </div>');
+document.write('</div>');
 
 /* Whats On Tap beer details */
 
 for (i = 1; i <= maxLength; i++) {
-    document.write('<div data-role="page" id="article' + i + '" style="background-color:#FFFFFF;">' + ' <div id="header-gradient-red">' + ' <div id="header-logo">' + ' </div>' + ' </div>' + ' <div data-role="header">' + ' <a href="javascript:history.go(-1);" class="ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-corner-all" data-transition="slide" data-direction="reverse"></a>' + '    <h1 id="articleHeader' + i + '">&nbsp;</h1>' + '  </div>' + '  <div data-role="content">' + '    <div id="articleContent' + i + '" class="articleContent"></div>' + ' <div data-role="controlgroup" data-type="horizontal">' + '      <a href="#article' + String(i - 1) + '" data-role="button" data-icon="arrow-l"' + '        data-inline="true" class="prevButton">Prev</a>' + '      <a href="#article' + String(i + 1) + '" data-role="button" data-icon="arrow-r"' + '        data-inline="true" class="nextButton" data-iconpos="right">Next</a>' + '    </div>' + '  </div>' + '</div>');
+    document.write('<div data-role="page" id="article' + i + '" style="background-color:#FFFFFF;">' + ' <div id="header-gradient-red">' + ' <div id="header-logo">' + ' </div>' + ' </div>' + ' <div data-role="header">' + ' <a href="javascript:history.go(-1);" class="ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-corner-all" data-transition="slide" data-direction="reverse">Back</a>' + '    <h1 id="articleHeader' + i + '">&nbsp;</h1>' + '  <a href="#mypanel" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all" data-iconpos="right">Menu</a>' + ' </div>' + '  <div data-role="content">' + '    <div id="articleContent' + i + '" class="articleContent"></div>' + ' <div data-role="controlgroup" data-type="horizontal">' + '      <a href="#article' + String(i - 1) + '" data-role="button" data-icon="arrow-l"' + '        data-inline="true" class="prevButton">Prev</a>' + '      <a href="#article' + String(i + 1) + '" data-role="button" data-icon="arrow-r"' + '        data-inline="true" class="nextButton" data-iconpos="right">Next</a>' + '    </div>' + '  </div>' + '</div>');
 } /* JSONP */
 $(function() {  
     // getOnlineFeed('http://www.consumersbeverages.com/feeds/ontap-4.xml');
@@ -88,6 +79,7 @@ var listEntries = function(json) {
         $('#articleHeader' + i).text(entry.title);
         $('#openButton' + i).attr('href', entry.link);
         $('#articleContent' + i).append(entry.content);
+		$( ".selector" ).panel( "close" );
     }
     $('#article1 .prevButton').remove();
     $('#article' + articleLength + ' .nextButton').remove();
