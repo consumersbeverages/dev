@@ -1,12 +1,13 @@
 <!DOCTYPE>
 <html>
 <head>
-<title>Consumers Beverages Mobile</title>
+<meta content="index,follow" name="robots" />
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 <meta content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" name="viewport" />
-<script src="javascript/functions.js" type="text/javascript"></script>
+<title>Consumers Beverages Mobile</title>
 <link rel="stylesheet" href="css/jquery.mobile-1.4.0.min.css" />
 <link rel="stylesheet" href="css/Consumers.min.css" />
+<script src="javascript/functions.js" type="text/javascript"></script>
 <script src="javascript/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="javascript/jquery.mobile-1.4.0.min.js" type="text/javascript"></script>
 <style type='text/css'>
@@ -48,25 +49,22 @@ $.urlParam = function(name, url){
 var test_store = $.urlParam('store');
 
 /* writing HTML for Whats On Tap list */
-document.write('<div data-role="page" id="list">' + ' <div id="header-gradient-red">' + ' <div id="header-logo">' + ' </div>' + ' </div>' + ' <div data-role="header">' + ' <a href="javascript:history.go(-1);" class="ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-corner-all" data-transition="slide" data-direction="reverse">Back</a>' + ' <h1><span id="widgetTitle">...</span> ' + '      <span style="font-size: x-small"></span></h1>' + ' <a href="#mypanel" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all" data-iconpos="right">Menu</a>' + ' </div>' + '  <div data-role="content">' + '    <ol data-role="listview" data-filter="true" id="articleList">');
+document.write('<div data-role="page" id="list">' + ' <div id="header-gradient-red">' + ' <div id="header-logo">' + ' </div>' + ' </div>' + ' <div data-role="header">' + ' <a href="whatsontap-stores.html" class="ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-corner-all" data-transition="slide" data-direction="reverse">Back</a>' + ' <h1><span id="widgetTitle">...</span> ' + '      <span style="font-size: x-small"></span></h1>' + ' <a href="#mypanel" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all" data-iconpos="right">Menu</a>' + ' </div>' + '  <div data-role="content">' + '    <ol data-role="listview" data-filter="true" id="articleList">');
 for (var i = 1; i <= maxLength; i++) {
     document.write('<li id="list' + i + '"><a href="#article' + i + '" id="link' + i + '">&nbsp;</a></li>');
 }
 document.write('</ol>');
 /* end "content" */
 document.write('</div>');
-document.write('<div data-role="panel" data-display="overlay" id="mypanel" data-theme="a">' + '<ul data-role="listview">' + '<li>' + '<a href="whatsontap-stores.html">What&rsquo;s On Tap</a>' + '</li>' + '<li>' + '<a href="events.html">Events &amp; Tastings</a>' + '</li>' + '<li>' + '<a href="locations.html">Locations</a>' + '</li>' + '<li>' + '<a href="contact.html">Contact Us</a>' + '</li>' + '<li>' + '<a href="ads.html">Ads &amp; Store Specials</a>' + '</li>' + ' </ul>' + ' <br />' + ' <br />' + '<a href="#mypanel" data-role="close" class="ui-btn ui-icon-delete ui-btn-icon-left ui-corner-all" data-theme="c">Close</a>' + ' </div>');
+document.write('<div data-role="panel" id="mypanel" data-display="overlay" data-theme="a">' + '<ul data-role="listview">' + '<li>' + '<a href="whatsontap-stores.html">What&rsquo;s On Tap</a>' + '</li>' + '<li>' + '<a href="events.html">Events &amp; Tastings</a>' + '</li>' + '<li>' + '<a href="locations.html">Locations</a>' + '</li>' + '<li>' + '<a href="contact.html">Contact Us</a>' + '</li>' + '<li>' + '<a href="ads.html">Ads &amp; Store Specials</a>' + '</li>' + ' </ul>' + ' <br />' + ' <br />' + '<a href="#mypanel" data-role="close" class="ui-btn ui-icon-delete ui-btn-icon-left ui-corner-all" data-theme="c">Close</a>' + ' </div>');
 document.write('</div>');
 
 /* Whats On Tap beer details */
 
 for (i = 1; i <= maxLength; i++) {
-    document.write('<div data-role="page" id="article' + i + '" style="background-color:#FFFFFF;">' + ' <div id="header-gradient-red">' + ' <div id="header-logo">' + ' </div>' + ' </div>' + ' <div data-role="header">' + ' <a href="javascript:history.go(-1);" class="ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-corner-all" data-transition="slide" data-direction="reverse">Back</a>' + '    <h1 id="articleHeader' + i + '">&nbsp;</h1>' + '  <a href="#mypanel" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all" data-iconpos="right">Menu</a>' + ' </div>' + '  <div data-role="content">' + '    <div id="articleContent' + i + '" class="articleContent"></div>' + ' <div data-role="controlgroup" data-type="horizontal">' + '      <a href="#article' + String(i - 1) + '" data-role="button" data-icon="arrow-l"' + '        data-inline="true" class="prevButton">Prev</a>' + '      <a href="#article' + String(i + 1) + '" data-role="button" data-icon="arrow-r"' + '        data-inline="true" class="nextButton" data-iconpos="right">Next</a>' + '    </div>' + '  </div>' + '</div>');
+    document.write('<div data-role="page" id="article' + i + '" style="background-color:#FFFFFF;">' + ' <div id="header-gradient-red">' + ' <div id="header-logo">' + ' </div>' + ' </div>' + ' <div data-role="header">' + ' <a href="javascript:history.go(-1);" class="ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-corner-all" data-transition="slide" data-direction="reverse">Back</a>' + '    <h1 id="articleHeader' + i + '">&nbsp;</h1>' + ' </div>' + '  <div data-role="content">' + '    <div id="articleContent' + i + '" class="articleContent"></div>' + '  </div>');
+document.write('</div>');
 }
-document.write('<div data-role="panel" data-display="overlay" id="mypanel" data-theme="a">' + '<ul data-role="listview">' + '<li>' + '<a href="whatsontap-stores.html">What&rsquo;s On Tap</a>' + '</li>' + '<li>' + '<a href="events.html">Events &amp; Tastings</a>' + '</li>' + '<li>' + '<a href="locations.html">Locations</a>' + '</li>' + '<li>' + '<a href="contact.html">Contact Us</a>' + '</li>' + '<li>' + '<a href="ads.html">Ads &amp; Store Specials</a>' + '</li>' + ' </ul>' + ' <br />' + ' <br />' + '<a href="#mypanel" data-role="close" class="ui-btn" data-icon="delete" data-theme="c">Close</a>' + ' </div>');
-
-
-
 
 /* JSONP */
 $(function() {  
@@ -85,7 +83,7 @@ var listEntries = function(json) {
         $('#articleHeader' + i).text(entry.title);
         $('#openButton' + i).attr('href', entry.link);
         $('#articleContent' + i).append(entry.content);
-		$( ".selector" ).panel( "close" );
+		
     }
     $('#article1 .prevButton').remove();
     $('#article' + articleLength + ' .nextButton').remove();
